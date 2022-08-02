@@ -264,7 +264,9 @@ def _setupSSHDMain(public_key, tunnel, ngrok_region, check_gpu_available, mount_
     print("(You need to sign up for ngrok and login,)")
     #Set your ngrok Authtoken.
     ngrok_token = getpass.getpass()
-
+    
+ if not ngrok_region:
+       ngrok_region = us
 
   return (True, _setupSSHDImpl(public_key, tunnel, ngrok_token, ngrok_region, mount_gdrive_to, mount_gdrive_from, is_VNC))
 
