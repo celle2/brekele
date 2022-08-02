@@ -266,7 +266,7 @@ def _setupSSHDMain(public_key, tunnel, ngrok_region, check_gpu_available, mount_
     ngrok_token = getpass.getpass()
     
 
-       ngrok_region = United States
+   
 
   return (True, _setupSSHDImpl(public_key, tunnel, ngrok_token, ngrok_region, mount_gdrive_to, mount_gdrive_from, is_VNC))
 
