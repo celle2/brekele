@@ -265,15 +265,6 @@ def _setupSSHDMain(public_key, tunnel, ngrok_region, check_gpu_available, mount_
     #Set your ngrok Authtoken.
     ngrok_token = getpass.getpass()
 
-    if not ngrok_region:
-      print("Select your ngrok region:")
-      print("us - United States (Ohio)")
-      print("eu - Europe (Frankfurt)")
-      print("ap - Asia/Pacific (Singapore)")
-      print("au - Australia (Sydney)")
-      print("sa - South America (Sao Paulo)")
-      print("jp - Japan (Tokyo)")
-      print("in - India (Mumbai)")
       ngrok_region = us
 
   return (True, _setupSSHDImpl(public_key, tunnel, ngrok_token, ngrok_region, mount_gdrive_to, mount_gdrive_from, is_VNC))
