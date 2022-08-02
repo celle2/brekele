@@ -226,7 +226,7 @@ def _setupSSHDImpl(public_key, tunnel, ngrok_token, ngrok_region, mount_gdrive_t
 def _setupSSHDMain(public_key, tunnel, ngrok_region, check_gpu_available, mount_gdrive_to, mount_gdrive_from, is_VNC):
     return (False, "")
 
-  print("---")
+  
   avail_tunnels = {"ngrok", "argotunnel"}
   if tunnel not in avail_tunnels:
     raise RuntimeError("tunnel argument must be one of " + str(avail_tunnels))
