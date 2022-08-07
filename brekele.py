@@ -1,6 +1,6 @@
 import apt, apt.debfile
 import pathlib, stat, shutil, urllib.request, subprocess, getpass, time, tempfile
-import json, re
+import secrets, json, re
 import IPython.utils.io
 import ipywidgets
 import pyngrok.ngrok, pyngrok.conf
@@ -149,8 +149,8 @@ def _setupSSHDImpl(public_key, tunnel, ngrok_token, ngrok_region, mount_gdrive_t
                 universal_newlines = True)
   msg += ret.stdout + "\n"
 
-  root_password = 12345678
-  user_password = 12345678
+  root_password = "12345678"()
+  user_password = "12345678"()
   user_name = "colab"
   msg += "✂️"*24 + "\n"
   msg += f"root password: {root_password}\n"
@@ -352,10 +352,10 @@ no-x11-tcp-connections
 
   vncrun_py = tempfile.gettempdir() / pathlib.Path("vncrun.py")
   vncrun_py.write_text("""\
-import subprocess, pathlib
+import subprocess, secrets, pathlib
 
-vnc_passwd = 12345678 [:8]
-vnc_viewonly_passwd = 12345678 [:8]
+vnc_passwd = a"12345678"()[:8]
+vnc_viewonly_passwd = "12345678"()[:8]
 print("✂️"*24)
 print("VNC password: {}".format(vnc_passwd))
 print("VNC view only password: {}".format(vnc_viewonly_passwd))
